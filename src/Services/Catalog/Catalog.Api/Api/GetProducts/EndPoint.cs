@@ -1,14 +1,11 @@
-﻿using Catalog.Api.Data;
-using Catalog.Api.Entities;
-using FastEndpoints;
-using System.Linq;
-using MongoDB.Driver;
+﻿using FastEndpoints;
+using Catalog.Api.Repositories;
 
 namespace Catalog.Api.Api.GetProducts
 {
     public class EndPoint : EndpointWithoutRequest<ProductResponse>
     {
-        public ICatalogContext catalogContext { get; set; }
+        public IProductRepository ProductRepository { get; set; }
 
         public override void Configure()
         {
@@ -18,7 +15,7 @@ namespace Catalog.Api.Api.GetProducts
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            var ProductList = await catalogContext.Products.Find(p => true).ToListAsync();
+            var ProductList = await ProductRepository.GetProductsAsync();
             Response = new ProductResponse
             {
                 Products = ProductList.AsEnumerable(),
