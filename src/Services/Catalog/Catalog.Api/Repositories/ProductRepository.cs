@@ -15,7 +15,19 @@ namespace Catalog.Api.Repositories
 
         public async Task CreateProduct(Product product)
         {
-           await this.catalogContext.Products.InsertOneAsync(product);
+            await this.catalogContext.Products.InsertOneAsync(product);
+        }
+
+        public async Task<bool> DeleteProductAsync(string id)
+        {
+            FilterDefinition<Product> filterDefinition = Builders<Product>
+                                                        .Filter
+                                                        .Eq(p => p.Id, id);
+            var deleteResult = await this.catalogContext
+                                         .Products
+                                         .DeleteOneAsync(filterDefinition);
+            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+
         }
 
         public async Task<Product> GetProductByIdAsync(string id)
@@ -31,7 +43,7 @@ namespace Catalog.Api.Repositories
         {
             FilterDefinition<Product> filter = Builders<Product>
                 .Filter
-                .Eq(p => p.Name,name);
+                .Eq(p => p.Name, name);
             return await this.catalogContext
                           .Products
                           .Find(filter)
@@ -56,6 +68,11 @@ namespace Catalog.Api.Repositories
                           .Products
                           .Find(filter)
                           .ToListAsync();
+        }
+
+        public Task<bool> UpdateProductAsync(Product product)
+        {
+            throw new NotImplementedException();
         }
     }
 }

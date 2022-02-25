@@ -13,5 +13,9 @@ namespace Catalog.Api.Repositories
         Task<List<Product>> GetProductsByCategoryAsync(string categoryName);
 
         Task CreateProduct(Product product);
+
+        Task<bool> UpdateProductAsync(Product product);
+
+        Task<bool> DeleteProductAsync(string id);
     }
 }
