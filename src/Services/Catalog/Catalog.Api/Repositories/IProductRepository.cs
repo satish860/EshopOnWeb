@@ -11,5 +11,7 @@ namespace Catalog.Api.Repositories
         Task<List<Product>> GetProductByNameAsync(string name);
 
         Task<List<Product>> GetProductsByCategoryAsync(string categoryName);
+
+        Task CreateProduct(Product product);
     }
 }

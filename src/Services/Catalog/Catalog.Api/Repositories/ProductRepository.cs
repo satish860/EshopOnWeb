@@ -13,6 +13,11 @@ namespace Catalog.Api.Repositories
             this.catalogContext = catalogContext;
         }
 
+        public async Task CreateProduct(Product product)
+        {
+           await this.catalogContext.Products.InsertOneAsync(product);
+        }
+
         public async Task<Product> GetProductByIdAsync(string id)
         {
             return await this.catalogContext
