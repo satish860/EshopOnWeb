@@ -70,9 +70,13 @@ namespace Catalog.Api.Repositories
                           .ToListAsync();
         }
 
-        public Task<bool> UpdateProductAsync(Product product)
+        public async Task<bool> UpdateProductAsync(Product product)
         {
-            throw new NotImplementedException();
+            var updateResult = await catalogContext
+                                       .Products
+                                       .ReplaceOneAsync(filter: g => g.Id == product.Id, replacement: product);
+            return updateResult.IsAcknowledged
+                    && updateResult.ModifiedCount > 0;
         }
     }
 }
