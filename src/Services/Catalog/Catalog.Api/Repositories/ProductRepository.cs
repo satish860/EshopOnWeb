@@ -13,6 +13,15 @@ namespace Catalog.Api.Repositories
             this.catalogContext = catalogContext;
         }
 
+        public async Task<Product> GetProductByIdAsync(string id)
+        {
+            return await this.catalogContext
+                              .Products
+                              .Find(x => x.Id == id)
+                              .FirstOrDefaultAsync();
+
+        }
+
         public async Task<List<Product>> GetProductsAsync()
         {
             return await this.catalogContext
