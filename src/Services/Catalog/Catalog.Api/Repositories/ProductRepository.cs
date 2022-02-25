@@ -40,5 +40,17 @@ namespace Catalog.Api.Repositories
                           .Find(p => true)
                           .ToListAsync();
         }
+
+        public async Task<List<Product>> GetProductsByCategoryAsync(string categoryName)
+        {
+            FilterDefinition<Product> filter = Builders<Product>
+               .Filter
+               .Eq(p => p.Category, categoryName);
+
+            return await this.catalogContext
+                          .Products
+                          .Find(filter)
+                          .ToListAsync();
+        }
     }
 }

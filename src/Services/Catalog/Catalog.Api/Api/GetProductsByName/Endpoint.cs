@@ -9,7 +9,7 @@ namespace Api.GetProductsByName
 
         public override void Configure()
         {
-            Post("/api/v1/catalog/getproductbyname/{Name}");
+            Get("/api/v1/catalog/getproductbyname/{Name}");
             AllowAnonymous();
         }
 

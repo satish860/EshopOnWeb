@@ -9,5 +9,7 @@ namespace Catalog.Api.Repositories
         Task<Product> GetProductByIdAsync(string id);
 
         Task<List<Product>> GetProductByNameAsync(string name);
+
+        Task<List<Product>> GetProductsByCategoryAsync(string categoryName);
     }
 }
