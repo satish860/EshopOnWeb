@@ -22,6 +22,17 @@ namespace Catalog.Api.Repositories
 
         }
 
+        public async Task<List<Product>> GetProductByNameAsync(string name)
+        {
+            FilterDefinition<Product> filter = Builders<Product>
+                .Filter
+                .Eq(p => p.Name,name);
+            return await this.catalogContext
+                          .Products
+                          .Find(filter)
+                          .ToListAsync();
+        }
+
         public async Task<List<Product>> GetProductsAsync()
         {
             return await this.catalogContext
