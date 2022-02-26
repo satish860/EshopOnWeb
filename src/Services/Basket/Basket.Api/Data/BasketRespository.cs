@@ -16,9 +16,17 @@ namespace Basket.Api.Data
         public async Task<ShoppingCart?> GetShoppingCartAsync(string userName)
         {
             var shoppingCart = await this.distributedCache.GetStringAsync(userName);
-            if(string.IsNullOrEmpty(shoppingCart))
+            if (string.IsNullOrEmpty(shoppingCart))
                 return null;
             return JsonSerializer.Deserialize<ShoppingCart>(shoppingCart);
+        }
+
+        public async Task<ShoppingCart?> UpdateShoppingCart(ShoppingCart? shoppingCart)
+        {
+            if (shoppingCart != null)
+                await distributedCache
+                        .SetStringAsync(shoppingCart.UserName,JsonSerializer.Serialize(shoppingCart));
+            return shoppingCart;
         }
     }
 }

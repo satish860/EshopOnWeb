@@ -4,7 +4,7 @@
     {
         public string UserName { get; set; } = string.Empty;
 
-        public List<ShoppingCartItem> ShoppingCartItems { get; set; } = new List<ShoppingCartItem>();
+        public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
 
         public ShoppingCart(string userName)
         {
@@ -15,7 +15,7 @@
         {
             get
             {
-                return ShoppingCartItems.Sum(x => x.Price * x.Quantity);
+                return Items.Sum(x => x.Price * x.Quantity);
             }
         }
     }

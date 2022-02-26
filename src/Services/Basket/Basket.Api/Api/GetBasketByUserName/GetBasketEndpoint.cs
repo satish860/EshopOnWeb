@@ -19,12 +19,12 @@ namespace Basket.Api.Api.GetBasketByUserName
             if (shoppingBasket == null)
                 await SendAsync(new Response
                 {
-                    ShoppingBasket = new ShoppingCart(req.UserName),
+                    ShoppingCart = new ShoppingCart(req.UserName),
                 });
             else
                 await SendAsync(new Response
                 {
-                    ShoppingBasket = shoppingBasket,
+                    ShoppingCart = shoppingBasket,
                 });
         }
     }

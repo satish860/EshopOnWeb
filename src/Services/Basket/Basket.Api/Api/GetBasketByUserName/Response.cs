@@ -4,6 +4,6 @@ namespace Basket.Api.Api.GetBasketByUserName
 {
     public class Response
     {
-        public ShoppingCart ShoppingBasket { get; set; } = null;
+        public ShoppingCart ShoppingCart { get; set; } = null;
     }
 }
