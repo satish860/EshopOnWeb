@@ -13,6 +13,11 @@ namespace Basket.Api.Data
             this.distributedCache = distributedCache;
         }
 
+        public async Task DeleteShoppingCart(string userName)
+        {
+            await this.distributedCache.RemoveAsync(userName);
+        }
+
         public async Task<ShoppingCart?> GetShoppingCartAsync(string userName)
         {
             var shoppingCart = await this.distributedCache.GetStringAsync(userName);

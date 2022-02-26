@@ -7,5 +7,7 @@ namespace Basket.Api.Data
         Task<ShoppingCart?> GetShoppingCartAsync(string userName);
 
         Task<ShoppingCart?> UpdateShoppingCart(ShoppingCart? shoppingCart);
+
+        Task DeleteShoppingCart(string userName);
     }
 }
