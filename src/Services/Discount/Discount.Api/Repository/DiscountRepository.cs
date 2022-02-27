@@ -27,7 +27,7 @@ namespace Discount.Api.Repository
         {
             using (var session = documentStore.LightweightSession())
             {
-                session.DeleteWhere<Coupon>(p=>p.ProductName.Equals(productName));
+                session.DeleteWhere<Coupon>(p => p.ProductName.Equals(productName));
                 await session.SaveChangesAsync();
             }
 
@@ -37,13 +37,18 @@ namespace Discount.Api.Repository
         {
             using (var session = documentStore.QuerySession())
             {
-                return session.Query<Coupon>().Where(p => p.ProductName.Equals(productName));
+                return session.Query<Coupon>().Where(p => p.ProductName.Equals(productName)).AsEnumerable();
             }
         }
 
-        public Task<bool> UpdateCoupon(Coupon coupon)
+        public async Task<bool> UpdateCoupon(Coupon coupon)
         {
-            throw new NotImplementedException();
+            using (var session = documentStore.LightweightSession())
+            {
+                session.Update<Coupon>(coupon);
+                await session.SaveChangesAsync();
+            }
+            return true;
         }
     }
 }
