@@ -7,5 +7,9 @@ namespace Discount.Api.Repository
         Task<Coupon> CreateCoupon(Coupon coupon);
 
         Task<IEnumerable<Coupon>> GetCouponsByProductName(string productName);
+
+        Task<bool> UpdateCoupon(Coupon coupon);
+
+        Task DeleteCoupon(string ProductName);
     }
 }
