@@ -1,5 +1,6 @@
 ﻿using Discount.Api.Domain;
 using Marten;
+using System.Linq;
 
 namespace Discount.Api.Repository
 {
@@ -20,6 +21,14 @@ namespace Discount.Api.Repository
                 await session.SaveChangesAsync();
             }
             return coupon;
+        }
+
+        public async Task<IEnumerable<Coupon>> GetCouponsByProductName(string productName)
+        {
+            using (var session = documentStore.QuerySession())
+            {
+                return session.Query<Coupon>().Where(p => p.ProductName.Equals(productName));
+            }
         }
     }
 }
