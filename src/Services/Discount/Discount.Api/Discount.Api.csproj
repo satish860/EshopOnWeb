@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="3.8.1" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="3.8.1" />
+    <PackageReference Include="Marten" Version="4.3.1" />
+  </ItemGroup>
+
 </Project>
