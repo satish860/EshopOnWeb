@@ -21,6 +21,3 @@ jobs:
       run: dotnet restore ./src/EShopOnweb.sln
     - name: Build
       run: dotnet build --no-restore ./src/EShopOnweb.sln
-    - name: Test
-      run: dotnet test --no-build --verbosity normal ./src/EShopOnweb.sln
-      working-directory: ./src
