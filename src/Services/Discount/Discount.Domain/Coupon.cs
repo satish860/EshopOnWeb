@@ -1,4 +1,4 @@
-﻿namespace Discount.Api.Domain
+﻿namespace Discount.Domain
 {
     public class Coupon
     {

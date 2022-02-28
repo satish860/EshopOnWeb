@@ -1,4 +1,4 @@
-using Discount.Api.Repository;
+using Discount.Domain.Repository;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Marten;
@@ -11,7 +11,7 @@ builder.Services.AddMarten(options =>
     options.AutoCreateSchemaObjects = AutoCreate.All;
 });
 builder.Services.AddFastEndpoints();
-builder.Services.AddTransient<IRepository, DiscountRepository>();
+builder.Services.AddTransient<IDiscountRepository, DiscountRepository>();
 builder.Services.AddSwaggerDoc();
 var app = builder.Build();
 

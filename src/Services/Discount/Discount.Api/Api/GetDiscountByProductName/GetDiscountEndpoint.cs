@@ -1,14 +1,13 @@
-﻿using Discount.Api.Repository;
+﻿using Discount.Domain.Repository;
 using FastEndpoints;
-using System.Linq;
 
 namespace Discount.Api.Api.GetDiscountByProductName
 {
     public class GetDiscountEndpoint : Endpoint<Request, Response>
     {
-        private readonly IRepository repository;
+        private readonly IDiscountRepository repository;
 
-        public GetDiscountEndpoint(IRepository repository)
+        public GetDiscountEndpoint(IDiscountRepository repository)
         {
             this.repository = repository;
         }

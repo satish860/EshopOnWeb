@@ -1,13 +1,13 @@
-﻿using Discount.Api.Repository;
+﻿using Discount.Domain.Repository;
 using FastEndpoints;
 
 namespace Discount.Api.Api.DeleteDiscount
 {
     public class DeleteEndpoint : Endpoint<DeleteRequest>
     {
-        private readonly IRepository repository;
+        private readonly IDiscountRepository repository;
 
-        public DeleteEndpoint(IRepository repository)
+        public DeleteEndpoint(IDiscountRepository repository)
         {
             this.repository = repository;
         }

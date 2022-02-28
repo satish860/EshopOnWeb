@@ -1,4 +1,4 @@
-﻿using Discount.Api.Domain;
+﻿using Discount.Domain;
 
 namespace Discount.Api.Api.CreateDiscount
 {

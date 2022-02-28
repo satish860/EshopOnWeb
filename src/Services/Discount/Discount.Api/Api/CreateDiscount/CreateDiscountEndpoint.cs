@@ -1,13 +1,13 @@
-﻿using Discount.Api.Repository;
+﻿using Discount.Domain.Repository;
 using FastEndpoints;
 
 namespace Discount.Api.Api.CreateDiscount
 {
     public class CreateDiscountEndpoint : Endpoint<Request, Response>
     {
-        private readonly IRepository repository;
+        private readonly IDiscountRepository repository;
 
-        public CreateDiscountEndpoint(IRepository repository)
+        public CreateDiscountEndpoint(IDiscountRepository repository)
         {
             this.repository = repository;
         }

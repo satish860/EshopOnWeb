@@ -1,10 +1,13 @@
-﻿using Discount.Api.Domain;
-using Marten;
+﻿using Marten;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Discount.Api.Repository
+namespace Discount.Domain.Repository
 {
-    public class DiscountRepository : IRepository
+    public class DiscountRepository : IDiscountRepository
     {
         private readonly IDocumentStore documentStore;
 

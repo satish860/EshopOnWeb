@@ -1,8 +1,12 @@
-﻿using Discount.Api.Domain;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Discount.Api.Repository
+namespace Discount.Domain.Repository
 {
-    public interface IRepository
+    public interface IDiscountRepository
     {
         Task<Coupon> CreateCoupon(Coupon coupon);
 

@@ -1,13 +1,13 @@
-﻿using Discount.Api.Repository;
+﻿using Discount.Domain.Repository;
 using FastEndpoints;
 
 namespace Discount.Api.Api.UpdateDiscount
 {
     public class UpdateDiscountEndpoint : Endpoint<Request, Response>
     {
-        private readonly IRepository repository;
+        private readonly IDiscountRepository repository;
 
-        public UpdateDiscountEndpoint(IRepository repository)
+        public UpdateDiscountEndpoint(IDiscountRepository repository)
         {
             this.repository = repository;
         }
