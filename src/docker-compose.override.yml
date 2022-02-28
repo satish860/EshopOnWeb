@@ -30,7 +30,7 @@ services:
   catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - 'DatabaseSettings:ConnectionString=mongodb://catalogdb:27017'
+      - DatabaseSettings__ConnectionString=mongodb://catalogdb:27017
     ports:
       - '8080:80'
     depends_on:
@@ -39,7 +39,7 @@ services:
   basket.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings:ConnectionString = basketdb:6379"
+      - CacheSettings__ConnectionString = basketdb:6379
     ports:
       - '8081:80'
     depends_on:
@@ -48,7 +48,7 @@ services:
   discount.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;"
+      - DatabaseSettings__ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;
     ports:
       - "8082:80"
     depends_on:
