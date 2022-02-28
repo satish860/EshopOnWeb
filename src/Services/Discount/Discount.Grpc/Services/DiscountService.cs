@@ -47,5 +47,14 @@ namespace Discount.Grpc.Services
             });
             return request;
         }
+
+        public override async Task<DeleteResponse> DeleteDiscount(DeleteRequest request, ServerCallContext context)
+        {
+            await this.discountRepository.DeleteCoupon(request.ProductName);
+            return new DeleteResponse
+            {
+                Sucess = true
+            }
+        }
     }
 }

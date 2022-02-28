@@ -9,6 +9,8 @@ service DiscountProtoService{
 
 	rpc UpdateDiscount (CouponModel) returns (CouponModel);
 
+	rpc DeleteDiscount (DeleteRequest) returns (DeleteResponse);
+
 }
 
 message GetDiscountRequest{
@@ -27,4 +29,12 @@ message CouponModel{
 	string productName = 2;
 	string description = 3;
 	int32 amount = 4;
+}
+
+message DeleteRequest{
+	string productName = 1;
+}
+
+message DeleteResponse{
+	bool Sucess = 1;
 }
