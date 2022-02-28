@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Discount.Domain\Discount.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="Protos\discount.proto" GrpcServices="Server" />
   </ItemGroup>
 

@@ -12,6 +12,8 @@ namespace Discount.Domain.Repository
 
         Task<IEnumerable<Coupon>> GetCouponsByProductName(string productName);
 
+        Task<Coupon?> GetBestCouponByProductName(string productName);
+
         Task<bool> UpdateCoupon(Coupon coupon);
 
         Task DeleteCoupon(string ProductName);

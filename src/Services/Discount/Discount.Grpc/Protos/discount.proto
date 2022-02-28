@@ -11,7 +11,7 @@ message GetDiscountRequest{
 }
 
 message GetDiscountResponse{
-	int32 id = 1;
+	string id = 1;
 	string productName = 2;
 	string description = 3;
 	int32 amount = 4;
