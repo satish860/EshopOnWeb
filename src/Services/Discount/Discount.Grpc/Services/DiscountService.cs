@@ -34,7 +34,18 @@ namespace Discount.Grpc.Services
             });
             request.Id = coupon.Id.ToString();
             return request;
-           
+        }
+
+        public override async Task<CouponModel> UpdateDiscount(CouponModel request, ServerCallContext context)
+        {
+            var coupon = await this.discountRepository.UpdateCoupon(new Coupon
+            {
+                Id= new Guid(request.Id),
+                ProductName = request.ProductName,
+                Amount = request.Amount,
+                Description = request.Description,
+            });
+            return request;
         }
     }
 }
