@@ -54,7 +54,7 @@ namespace Discount.Grpc.Services
             return new DeleteResponse
             {
                 Sucess = true
-            }
+            };
         }
     }
 }
