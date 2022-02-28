@@ -4,6 +4,9 @@ option csharp_namespace = "Discount.Grpc";
 
 service DiscountProtoService{
 	rpc GetDiscount (GetDiscountRequest) returns (GetDiscountResponse);
+
+	rpc CreateDiscount (CouponModel) returns (CouponModel);
+
 }
 
 message GetDiscountRequest{
@@ -11,6 +14,13 @@ message GetDiscountRequest{
 }
 
 message GetDiscountResponse{
+	string id = 1;
+	string productName = 2;
+	string description = 3;
+	int32 amount = 4;
+}
+
+message CouponModel{
 	string id = 1;
 	string productName = 2;
 	string description = 3;

@@ -1,4 +1,5 @@
-﻿using Discount.Domain.Repository;
+﻿using Discount.Domain;
+using Discount.Domain.Repository;
 using Grpc.Core;
 
 namespace Discount.Grpc.Services
@@ -21,6 +22,19 @@ namespace Discount.Grpc.Services
                 Description = coupon.Description,
                 ProductName=coupon.ProductName,
             };
+        }
+
+        public override async Task<CouponModel> CreateDiscount(CouponModel request, ServerCallContext context)
+        {
+            var coupon = await this.discountRepository.CreateCoupon(new Coupon
+            {
+                ProductName = request.ProductName,
+                Amount = request.Amount,
+                Description= request.Description,
+            });
+            request.Id = coupon.Id.ToString();
+            return request;
+           
         }
     }
 }
