@@ -15,6 +15,10 @@ namespace Discount.Grpc.Services
         public override async Task<GetDiscountResponse> GetDiscount(GetDiscountRequest request, ServerCallContext context)
         {
             var coupon = await this.discountRepository.GetBestCouponByProductName(request.ProductName);
+            if (coupon == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} is not found."));
+            }
             return new GetDiscountResponse
             {
                 Id = coupon.Id.ToString(),
