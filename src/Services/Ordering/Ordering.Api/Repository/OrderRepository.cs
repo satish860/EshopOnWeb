@@ -13,6 +13,12 @@ namespace Ordering.Api.Repository
             this.orderContext = orderContext;
         }
 
+        public async Task<Order> CreateOrder(Order order)
+        {
+            await this.orderContext.OrderCollection.InsertOneAsync(order);
+            return order;
+        }
+
         public async Task<IEnumerable<Order>> GetOrdersByUserName(string userName)
         {
             FilterDefinition<Order> filter = Builders<Order>
@@ -22,5 +28,7 @@ namespace Ordering.Api.Repository
                  .Find(filter)
                  .ToListAsync();
         }
+
+        
     }
 }

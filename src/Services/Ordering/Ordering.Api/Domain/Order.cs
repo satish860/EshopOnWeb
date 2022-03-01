@@ -1,7 +1,14 @@
-﻿namespace Ordering.Api.Domain
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace Ordering.Api.Domain
 {
     public class Order
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
         public string? UserName { get; set; }
         public decimal TotalPrice { get; set; }
 
