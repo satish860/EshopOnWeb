@@ -10,6 +10,6 @@ namespace Ordering.Api.Repository
 
         Task<bool> UpdateOrder(Order order);
 
-        Task<bool> DeleteOrder(Order order);
+        Task<bool> DeleteOrder(string id);
     }
 }

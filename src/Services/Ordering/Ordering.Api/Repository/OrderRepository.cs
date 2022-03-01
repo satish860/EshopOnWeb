@@ -19,11 +19,11 @@ namespace Ordering.Api.Repository
             return order;
         }
 
-        public async Task<bool> DeleteOrder(Order order)
+        public async Task<bool> DeleteOrder(string id)
         {
             FilterDefinition<Order> filterDefinition = Builders<Order>
                                                        .Filter
-                                                       .Eq(p => p.Id, order.Id);
+                                                       .Eq(p => p.Id, id);
             var deleteResult = await this.orderContext
                                          .OrderCollection
                                          .DeleteOneAsync(filterDefinition);
