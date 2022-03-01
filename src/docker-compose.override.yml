@@ -69,3 +69,13 @@ services:
         - discountdb
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  ordering.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DatabaseSettings__ConnectionString=mongodb://catalogdb:27017
+    ports:
+      - "8084:80"
+    depends_on:
+      - catalogdb
+
