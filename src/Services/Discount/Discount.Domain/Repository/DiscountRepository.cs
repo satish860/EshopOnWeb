@@ -36,11 +36,11 @@ namespace Discount.Domain.Repository
 
         }
 
-        public Task<Coupon?> GetBestCouponByProductName(string productName)
+        public async Task<Coupon?> GetBestCouponByProductName(string productName)
         {
             using (var session = documentStore.QuerySession())
             {
-                return session.Query<Coupon>()
+                return await session.Query<Coupon>()
                     .FirstOrDefaultAsync(p => p.ProductName.Equals(productName));
             }
         }

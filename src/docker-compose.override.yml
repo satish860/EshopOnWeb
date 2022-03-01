@@ -39,11 +39,13 @@ services:
   basket.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - CacheSettings__ConnectionString = basketdb:6379
+      - CacheSettings__ConnectionString=basketdb:6379
+      - GrpcSettings__DiscountUrl=http://discount.grpc
     ports:
       - '8081:80'
     depends_on:
         - basketdb
+        - discount.grpc
 
   discount.api:
     environment:
@@ -63,5 +65,7 @@ services:
     ports:
       - "8083:80"
       - "400:443"
+    depends_on:
+        - discountdb
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
