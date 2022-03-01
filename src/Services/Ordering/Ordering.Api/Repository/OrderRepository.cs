@@ -19,6 +19,17 @@ namespace Ordering.Api.Repository
             return order;
         }
 
+        public async Task<bool> DeleteOrder(Order order)
+        {
+            FilterDefinition<Order> filterDefinition = Builders<Order>
+                                                       .Filter
+                                                       .Eq(p => p.Id, order.Id);
+            var deleteResult = await this.orderContext
+                                         .OrderCollection
+                                         .DeleteOneAsync(filterDefinition);
+            return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
+        }
+
         public async Task<IEnumerable<Order>> GetOrdersByUserName(string userName)
         {
             FilterDefinition<Order> filter = Builders<Order>
@@ -29,6 +40,14 @@ namespace Ordering.Api.Repository
                  .ToListAsync();
         }
 
-        
+        public async Task<bool> UpdateOrder(Order order)
+        {
+            var updateResult = await this.orderContext
+                                       .OrderCollection
+                                       .ReplaceOneAsync(filter: g => g.Id == order.Id, replacement: order);
+            return updateResult.IsAcknowledged
+                    && updateResult.ModifiedCount > 0;
+
+        }
     }
 }
