@@ -6,6 +6,8 @@ namespace Basket.Api.Api.UpdateBasket
     public class UpdateBasketByUserName : Endpoint<Request, Response>
     {
         public IBasketRepository BasketRepository { get; set; }
+
+
         public override void Configure()
         {
             Post("/api/v1/basket");
