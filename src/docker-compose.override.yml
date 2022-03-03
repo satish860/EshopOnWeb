@@ -48,6 +48,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - CacheSettings__ConnectionString=basketdb:6379
       - GrpcSettings__DiscountUrl=http://discount.grpc
+      - Rabbitmq__HostUrl=amqp://guest:guest@rabbitmq:5672
     ports:
       - '8081:80'
     depends_on:

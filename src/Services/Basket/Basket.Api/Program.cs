@@ -1,6 +1,7 @@
 using Basket.Api.Data;
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using MassTransit;
 using static Discount.Grpc.DiscountProtoService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,15 @@ builder.Services.AddGrpcClient<DiscountProtoServiceClient>(options =>
 {
     options.Address = new Uri(builder.Configuration.GetValue<string>("GrpcSettings:DiscountUrl"));
 });
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host(builder.Configuration.GetValue<string>("Rabbitmq:HostUrl"));
+    });
+});
+
+builder.Services.AddMassTransitHostedService();
 var app = builder.Build();
 
 
