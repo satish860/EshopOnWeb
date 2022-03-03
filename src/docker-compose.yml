@@ -43,9 +43,16 @@ services:
       context: .
       dockerfile: Services/Ordering/Ordering.Api/Dockerfile
 
+  reverseproxy:
+    image: ${DOCKER_REGISTRY-}reverseproxy
+    build:
+      context: .
+      dockerfile: ApiGateways/ReverseProxy/Dockerfile
+
 volumes:
   mongo_data:
   postgres_data:
+
 
 
 

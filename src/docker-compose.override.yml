@@ -88,3 +88,12 @@ services:
     depends_on:
       - catalogdb
 
+
+  reverseproxy:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8010:80"
+    depends_on:
+        - catalog.api
+
