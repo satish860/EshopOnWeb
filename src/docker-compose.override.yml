@@ -82,6 +82,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - DatabaseSettings__ConnectionString=mongodb://catalogdb:27017
+      - Rabbitmq__HostUrl=amqp://guest:guest@rabbitmq:5672
     ports:
       - "8084:80"
     depends_on:
