@@ -40,3 +40,32 @@ jobs:
         push: true
         file: src/Services/Basket/Basket.Api/Dockerfile
         tags: satish860/eshoponweb-basketapi:v${{ github.run_number }}
+    - name: Build Discount API
+      uses: docker/build-push-action@v2.9.0
+      with:
+        context: src/
+        push: true
+        file: src/Services/Discount/Discount.Api/Dockerfile
+        tags: satish860/eshoponweb-discount:v${{ github.run_number }}
+    - name: Build Discount Grpc
+      uses: docker/build-push-action@v2.9.0
+      with:
+        context: src/
+        push: true
+        file: src/Services/Discount/Discount.Grpc/Dockerfile
+        tags: satish860/eshoponweb-discountgrpc:v${{ github.run_number }}
+    - name: Build Ordering API
+      uses: docker/build-push-action@v2.9.0
+      with:
+        context: src/
+        push: true
+        file: src/Services/Ordering/Ordering.Api/Dockerfile
+        tags: satish860/eshoponweb-ordering:v${{ github.run_number }}
+    - name: Build reverseproxy
+      uses: docker/build-push-action@v2.9.0
+      with:
+        context: src/
+        push: true
+        file: src/ApiGateways/ReverseProxy/Dockerfile
+        tags: satish860/eshoponweb-reverseproxy:v${{ github.run_number }}
+ 
