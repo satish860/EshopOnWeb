@@ -32,4 +32,4 @@ jobs:
         context: src/
         push: true
         file: src/Services/Catalog/Catalog.Api/Dockerfile
-        tags: eshoponweb-catalogapi:v${{ github.run_number }}
+        tags: satish860/eshoponweb-catalogapi:v${{ github.run_number }}
