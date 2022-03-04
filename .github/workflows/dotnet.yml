@@ -30,4 +30,6 @@ jobs:
       uses: docker/build-push-action@v2.9.0
       with:
         context: src/
+        push: true
         file: src/Services/Catalog/Catalog.Api/Dockerfile
+        tags: eshoponweb-catalogapi:v${{ github.run_number }}
