@@ -29,4 +29,4 @@ jobs:
     - name: Build Catalog API
       uses: docker/build-push-action@v2.9.0
       with:
-        file: Services/Catalog/Catalog.Api/Dockerfile
+        file: src/Services/Catalog/Catalog.Api/Dockerfile
