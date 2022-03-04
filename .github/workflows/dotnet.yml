@@ -33,3 +33,10 @@ jobs:
         push: true
         file: src/Services/Catalog/Catalog.Api/Dockerfile
         tags: satish860/eshoponweb-catalogapi:v${{ github.run_number }}
+    - name: Build basket API
+      uses: docker/build-push-action@v2.9.0
+      with:
+        context: src/
+        push: true
+        file: src/Services/Basket/Basket.Api/Dockerfile
+        tags: satish860/eshoponweb-basketapi:v${{ github.run_number }}
