@@ -10,10 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastEndpoints" Version="3.6.0" />
-    <PackageReference Include="FastEndpoints.Swagger" Version="3.6.0" />
+    <PackageReference Include="FastEndpoints" Version="3.10.0-beta6" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="3.10.0-beta6" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
+    <PackageReference Include="Serilog" Version="2.11.0-dev-01380" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.0-dev-00265" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.2-dev-00890" />
   </ItemGroup>
 
 </Project>
